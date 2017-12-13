@@ -12,8 +12,7 @@ class MainController extends Controller
         $data = $request->all();
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
-        $name = $data["entry"][0]["messaging"][0]["sender"]["name"];
-        $this->sendTextMessage($id, "hi, $name Welcome to Gleamlight");
+        $this->sendTextMessage($id, "hi, $id Welcome to Gleamlight");
     }
 
     private function sendTextMessage($recipientId, $messageText)
