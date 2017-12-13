@@ -12,7 +12,7 @@ class MainController extends Controller
         $data = $request->all();
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
-        $this->sendTextMessage($id, "hi, $id Welcome to Gleamlight");
+        $this->sendTextMessage($id, "hi, $id \nWelcome to Gleamlight: A Smart Home Automation Project Developed By Ajay, Neelam, Puja and Manu.");
     }
 
     private function sendTextMessage($recipientId, $messageText)
