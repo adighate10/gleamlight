@@ -17,7 +17,6 @@ class MainController extends Controller
         if($usermsg=="Hi") {
             $this->sendTextMessage($id, "hi, $id \nWelcome to Gleamlight: A Smart Home Automation Project Developed By Ajay, Neelam, Puja and Manu.");
             //$this->sendTextMessage($id, $data);
-            $this->saveApiData();
         }
         if(strpos($usermsg, "turn on") !== false) {
             $this->sendTextMessage($id, "Hi, Bulb will be turned on.");
