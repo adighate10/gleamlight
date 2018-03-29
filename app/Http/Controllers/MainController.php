@@ -14,13 +14,14 @@ class MainController extends Controller
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
 
-        if($data["entry"][0]["messaging"][0]["message"]["text"]=="Hi") {
+       /* if($data["entry"][0]["messaging"][0]["message"]["text"]=="Hi") {
             $this->sendTextMessage($id, "hi, $id \nWelcome to Gleamlight: A Smart Home Automation Project Developed By Ajay, Neelam, Puja and Manu.");
             //$this->sendTextMessage($id, $data);
             $this->saveApiData();
-        }
-        /*$this->sendTextMessage($id, $data);
-        $this->saveApiData();*/
+        }*/
+
+        $this->sendTextMessage($id, $data["entry"][0]["messaging"][0]["message"]["text"]);
+        $this->saveApiData();
 
     }
 
