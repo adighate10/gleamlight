@@ -22,12 +22,12 @@ class MainController extends Controller
         if(strpos($usermsg, "turn on") !== false) {
             $this->sendTextMessage($id, "Hi, Bulb will be turned on.");
             //$this->sendTextMessage($id, $data);
-            $this->saveApiData();
+            $this->turnOnApiData();
         }
         if(strpos($usermsg, "turn off") !== false) {
             $this->sendTextMessage($id, "Hi, Bulb will be turned off.");
             //$this->sendTextMessage($id, $data);
-            $this->saveApiData();
+            $this->turnOffApiData();
         }
 
        /* $this->sendTextMessage($id, $data["entry"][0]["messaging"][0]["message"]["text"]);
@@ -54,10 +54,20 @@ class MainController extends Controller
         curl_exec($ch);
 
     }
-    public function saveApiData()
+    public function turnOnApiData()
     {
         $client = new Client();
-        $res = $client->request('GET', 'https://us-central1-glee-bc8ce.cloudfunctions.net/addMessage');
+        $res = $client->request('GET', 'https://us-central1-glee-bc8ce.cloudfunctions.net/turnOn');
+        /*echo $res->getStatusCode();
+        // "200"
+        echo $res->getHeader('content-type');
+        // 'application/json; charset=utf8'
+        echo $res->getBody();*/
+    }
+    public function turnOffApiData()
+    {
+        $client = new Client();
+        $res = $client->request('GET', 'https://us-central1-glee-bc8ce.cloudfunctions.net/turnOff');
         /*echo $res->getStatusCode();
         // "200"
         echo $res->getHeader('content-type');
