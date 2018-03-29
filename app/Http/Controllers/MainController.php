@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class MainController extends Controller
 {
@@ -13,6 +14,7 @@ class MainController extends Controller
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
         $this->sendTextMessage($id, "hi, $id \nWelcome to Gleamlight: A Smart Home Automation Project Developed By Ajay, Neelam, Puja and Manu.");
+        $this->saveApiData();
     }
 
     private function sendTextMessage($recipientId, $messageText)
@@ -33,5 +35,15 @@ class MainController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($messageData));
         curl_exec($ch);
 
+    }
+    public function saveApiData()
+    {
+        $client = new Client();
+        $res = $client->request('GET', 'https://us-central1-glee-bc8ce.cloudfunctions.net/addMessage');
+        echo $res->getStatusCode();
+        // "200"
+        echo $res->getHeader('content-type');
+        // 'application/json; charset=utf8'
+        echo $res->getBody();
     }
 }
