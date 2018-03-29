@@ -48,10 +48,10 @@ class MainController extends Controller
     {
         $client = new Client();
         $res = $client->request('GET', 'https://us-central1-glee-bc8ce.cloudfunctions.net/addMessage');
-        echo $res->getStatusCode();
+        /*echo $res->getStatusCode();
         // "200"
         echo $res->getHeader('content-type');
         // 'application/json; charset=utf8'
-        echo $res->getBody();
+        echo $res->getBody();*/
     }
 }
