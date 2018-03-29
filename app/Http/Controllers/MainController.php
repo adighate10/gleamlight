@@ -13,8 +13,12 @@ class MainController extends Controller
         $data = $request->all();
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
-        $this->sendTextMessage($id, "hi, $id \nWelcome to Gleamlight: A Smart Home Automation Project Developed By Ajay, Neelam, Puja and Manu.");
-        $this->saveApiData();
+
+        if($data["text"]!=null and $data["text"]=="Hi") {
+            $this->sendTextMessage($id, "hi, $id \nWelcome to Gleamlight: A Smart Home Automation Project Developed By Ajay, Neelam, Puja and Manu.");
+            $this->saveApiData();
+        }
+       
     }
 
     private function sendTextMessage($recipientId, $messageText)
