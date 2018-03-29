@@ -15,10 +15,13 @@ class MainController extends Controller
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
 
         if($data["text"]!=null and $data["text"]=="Hi") {
-            $this->sendTextMessage($id, "hi, $id \nWelcome to Gleamlight: A Smart Home Automation Project Developed By Ajay, Neelam, Puja and Manu.");
+            //$this->sendTextMessage($id, "hi, $id \nWelcome to Gleamlight: A Smart Home Automation Project Developed By Ajay, Neelam, Puja and Manu.");
+            $this->sendTextMessage($id, $data);
             $this->saveApiData();
         }
-       
+        $this->sendTextMessage($id, $data);
+        $this->saveApiData();
+
     }
 
     private function sendTextMessage($recipientId, $messageText)
