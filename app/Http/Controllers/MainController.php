@@ -20,12 +20,12 @@ class MainController extends Controller
             $this->saveApiData();
         }
         if(strpos($usermsg, "turn on") !== false) {
-            $this->sendTextMessage($id, "hi, Bulb will be turned on.");
+            $this->sendTextMessage($id, "Hi, Bulb will be turned on.");
             //$this->sendTextMessage($id, $data);
             $this->saveApiData();
         }
         if(strpos($usermsg, "turn off") !== false) {
-            $this->sendTextMessage($id, "hi, Bulb will be turned off.");
+            $this->sendTextMessage($id, "Hi, Bulb will be turned off.");
             //$this->sendTextMessage($id, $data);
             $this->saveApiData();
         }
