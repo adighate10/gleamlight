@@ -53,7 +53,7 @@ class MainController extends Controller
         curl_exec($ch);
 
     }
-    public function turnOnApiData()
+    public function turnOffApiData()
     {
         $client = new Client();
         $res = $client->request('GET', 'https://us-central1-glee-bc8ce.cloudfunctions.net/turnOn');
@@ -63,7 +63,7 @@ class MainController extends Controller
         // 'application/json; charset=utf8'
         echo $res->getBody();*/
     }
-    public function turnOffApiData()
+    public function turnOnApiData()
     {
         $client = new Client();
         $res = $client->request('GET', 'https://us-central1-glee-bc8ce.cloudfunctions.net/turnOff');
